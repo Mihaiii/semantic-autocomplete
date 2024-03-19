@@ -21,8 +21,5 @@ export default defineConfig({
         }
       }
     },
-  },
-  optimizeDeps: {
-    exclude: ['src/worker.js']
   }
 });

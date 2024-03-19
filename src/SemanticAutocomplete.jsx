@@ -1,7 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Autocomplete, TextField, CircularProgress } from "@mui/material";
 import { cos_sim } from "@xenova/transformers";
-import EmbeddingsWorker from "./worker?worker"
 
 const SemanticAutocomplete = React.forwardRef((props, ref) => {
   const {
@@ -20,7 +19,9 @@ const SemanticAutocomplete = React.forwardRef((props, ref) => {
 
   useEffect(() => {
     if (!worker.current) {
-      worker.current = new EmbeddingsWorker();
+      worker.current = new Worker(new URL("worker.js", import.meta.url), {
+        type: "module",
+      });
 
       worker.current.postMessage({
         type: "init",
