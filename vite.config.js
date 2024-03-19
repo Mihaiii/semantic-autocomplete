@@ -20,6 +20,9 @@ export default defineConfig({
           'react-dom': 'ReactDOM'
         }
       }
-    }
+    },
+  },
+  optimizeDeps: {
+    exclude: ['src/worker.js']
   }
 });

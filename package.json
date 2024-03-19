@@ -1,7 +1,7 @@
 {
   "name": "semantic-autocomplete",
   "description": "A blazing-fast semantic search React component. Match by meaning, not just by letters. Search as you type without waiting (no debounce).",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "type": "module",
   "main": "dist/semantic-autocomplete.umd.js",
   "module": "dist/semantic-autocomplete.es.js",
