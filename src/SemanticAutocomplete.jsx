@@ -8,10 +8,17 @@ const SemanticAutocomplete = React.forwardRef((props, ref) => {
   const [options, setOptions] = useState([]);
   const worker = useRef(null);
   const optionsWithEmbeddings = useRef([]);
+  const userInput = useRef("");
   const getOptionLabel = props.getOptionLabel || ((option) => option.label);
   useEffect(() => {
     if (!worker.current) {
       worker.current = new EmbeddingsWorker();
+
+      worker.current.postMessage({
+        type: "init",
+        pipelineParams: props.pipelineParams,
+        model: props.model,
+      });
     }
 
     const onMessageReceived = (e) => {
@@ -19,6 +26,14 @@ const SemanticAutocomplete = React.forwardRef((props, ref) => {
         case "completeOptions":
           optionsWithEmbeddings.current = e.data.optionsWithEmbeddings;
           setOptions(props.options);
+
+          //if user writes text before the embeddings are computed
+          if (userInput.current) {
+            worker.current.postMessage({
+              type: "computeInputText",
+              text: userInput.current,
+            });
+          }
           break;
 
         case "completeInputText":
@@ -79,6 +94,8 @@ const SemanticAutocomplete = React.forwardRef((props, ref) => {
   };
 
   const handleInputChange = (event, value, reason) => {
+    userInput.current = value;
+
     worker.current.postMessage({
       type: "computeInputText",
       text: value,
