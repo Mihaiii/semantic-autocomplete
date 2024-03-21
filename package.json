@@ -1,29 +1,43 @@
 {
-  "name": "sem-autocomplete",
-  "private": true,
-  "version": "0.0.0",
+  "name": "semantic-autocomplete",
+  "description": "A blazing-fast semantic search React component. Match by meaning, not just by letters. Search as you type without waiting (no debounce).",
+  "version": "0.0.8",
   "type": "module",
+  "main": "dist/semantic-autocomplete.umd.js",
+  "module": "dist/semantic-autocomplete.es.js",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Mihaiii/semantic-autocomplete.git"
+  },
+  "files": [
+    "dist/*",
+    "README.md",
+    "LICENSE"
+  ],
   "dependencies": {
     "@emotion/styled": "^11.11.0",
-    "@mui/material": "^5.15.14",
-    "@xenova/transformers": "^2.16.1",
+    "@mui/material": "^5.15.12",
+    "@xenova/transformers": "^2.16.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "@types/react": "^18.2.66",
-    "@types/react-dom": "^18.2.22",
+    "@types/react": "^18.2.56",
+    "@types/react-dom": "^18.2.19",
     "@vitejs/plugin-react": "^4.2.1",
-    "eslint": "^8.57.0",
-    "eslint-plugin-react": "^7.34.1",
+    "eslint": "^8.56.0",
+    "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.6.0",
-    "eslint-plugin-react-refresh": "^0.4.6",
-    "vite": "^5.2.0"
-  }
+    "eslint-plugin-react-refresh": "^0.4.5",
+    "vite": "^5.1.4"
+  },
+  "keywords": ["semantic", "search", "nlp", "cosine", "similarity", "react", "component", "autocomplete"],
+  "author": "Mihai Chirculescu",
+  "license": "MIT"
 }
