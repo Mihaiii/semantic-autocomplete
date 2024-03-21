@@ -5,6 +5,7 @@ import EmbeddingsWorker from "./worker?worker&inline"
 const SemanticAutocomplete = React.forwardRef((props, ref) => {
     const [options, setOptions] = useState([]);
     const worker = useRef(null);
+    const getOptionLabel = props.getOptionLabel || ((option) => option.label);
     useEffect(() => {
         if (!worker.current) {
           worker.current = new EmbeddingsWorker();
@@ -25,7 +26,13 @@ const SemanticAutocomplete = React.forwardRef((props, ref) => {
       });
 
     useEffect(() => {
-        //TODO compute options embeddings
+        worker.current.postMessage({
+            type: "computeOptions",
+            options: props.options.map((op) => ({
+              ...op,
+              labelSemAutoCom: getOptionLabel(op),
+            })),
+          });
       }, [props.options]);
 
     return (

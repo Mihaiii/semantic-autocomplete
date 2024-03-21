@@ -20,6 +20,25 @@ self.addEventListener("message", async (event) => {
   let embeddingsPipeline = await MyEmbeddingsPipeline.getInstance();
 
   switch (event.data.type) {
-    //TODO
+    case "computeOptions":
+      const optionPromises = event.data.options.map(async (option) => {
+        return {
+          ...option,
+          embeddings: await embeddingsPipeline(
+            option.labelSemAutoCom,
+            { pooling: "mean", normalize: true }
+          ),
+        };
+      });
+      let optionsWithEmbeddings = await Promise.all(optionPromises);
+      let optionsWithEmbeddingsData = optionsWithEmbeddings.map((op) => ({
+        ...op,
+        embeddings: op.embeddings.data,
+      }));
+      self.postMessage({
+        status: "completeOptions",
+        optionsWithEmbeddings: optionsWithEmbeddingsData,
+      });
+      break;
   }
 });
