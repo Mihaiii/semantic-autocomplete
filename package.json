@@ -10,6 +10,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@emotion/styled": "^11.11.0",
+    "@mui/material": "^5.15.14",
+    "@xenova/transformers": "^2.16.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
