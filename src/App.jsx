@@ -101,7 +101,7 @@ function App() {
     { label: "Perfume", value: 96 },
     { label: "Makeup", value: 97 },
     { label: "Hairbrush", value: 98 },
-  ]
+  ];
 
   return (
     <SemanticAutocomplete
@@ -109,7 +109,7 @@ function App() {
       threshold={0.6}
       renderInput={(params) => <TextField {...params} />}
     />
-  )
+  );
 }
 
-export default App
+export default App;

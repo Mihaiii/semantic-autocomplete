@@ -18,7 +18,7 @@ const SemanticAutocomplete = React.forwardRef((props, ref) => {
   const userInput = useRef("");
   const loading = userLoading ? true : isOpen && isLoading;
   const getOptionLabel = props.getOptionLabel || ((option) => option.label);
-  
+
   useEffect(() => {
     if (!worker.current) {
       worker.current = new EmbeddingsWorker();
