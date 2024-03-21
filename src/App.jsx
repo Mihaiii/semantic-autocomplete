@@ -106,6 +106,7 @@ function App() {
   return (
     <SemanticAutocomplete
       options={options}
+      threshold={0.6}
       renderInput={(params) => <TextField {...params} />}
     />
   )
