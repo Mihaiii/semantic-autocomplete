@@ -12,10 +12,11 @@ const SemanticAutocomplete = React.forwardRef((props, ref) => {
   } = props;
   const [options, setOptions] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
+  const [isLoading, setLoading] = useState(true);
   const worker = useRef(null);
   const optionsWithEmbeddings = useRef([]);
   const userInput = useRef("");
-  const loading = userLoading ? true : isOpen && options.length === 0;
+  const loading = userLoading ? true : isOpen && isLoading;
   const getOptionLabel = props.getOptionLabel || ((option) => option.label);
 
   useEffect(() => {
@@ -34,7 +35,8 @@ const SemanticAutocomplete = React.forwardRef((props, ref) => {
         case "completeOptions":
           optionsWithEmbeddings.current = e.data.optionsWithEmbeddings;
           setOptions(props.options);
-          //if user write text before the embeddings are computed
+          setLoading(false);
+          //if user writes text before the embeddings are computed
           if (userInput.current) {
             worker.current.postMessage({
               type: "computeInputText",
@@ -51,11 +53,11 @@ const SemanticAutocomplete = React.forwardRef((props, ref) => {
             }))
             .sort((optionA, optionB) => {
               const containsA = includesCaseInsensitive(
-                getOptionLabel(optionA),
+                optionA.labelSemAutoCom,
                 e.data.inputText
               );
               const containsB = includesCaseInsensitive(
-                getOptionLabel(optionB),
+                optionB.labelSemAutoCom,
                 e.data.inputText
               );
 
@@ -65,8 +67,9 @@ const SemanticAutocomplete = React.forwardRef((props, ref) => {
               return containsA ? -1 : 1;
             });
 
-          if (props.topN) {
-            sortedOptions = sortedOptions.slice(0, topN);
+          if (props.threshold) {
+            let index = sortedOptions.findIndex(op => !includesCaseInsensitive(op.labelSemAutoCom, e.data.inputText) && op.sim < props.threshold)
+            sortedOptions = sortedOptions.slice(0, index);
           }
 
           setOptions(sortedOptions);
@@ -80,11 +83,12 @@ const SemanticAutocomplete = React.forwardRef((props, ref) => {
   });
 
   useEffect(() => {
+    setLoading(true);
     worker.current.postMessage({
       type: "computeOptions",
       options: props.options.map((op) => ({
         ...op,
-        label: getOptionLabel(op),
+        labelSemAutoCom: getOptionLabel(op),
       })),
     });
   }, [props.options]);
@@ -93,7 +97,7 @@ const SemanticAutocomplete = React.forwardRef((props, ref) => {
     return fullText.toLowerCase().includes(lookupValue.toLowerCase());
   };
 
-  const handleInputChange = async (event, value, reason) => {
+  const handleInputChange = (event, value, reason) => {
     userInput.current = value;
 
     worker.current.postMessage({
@@ -140,6 +144,7 @@ const SemanticAutocomplete = React.forwardRef((props, ref) => {
   return (
     <Autocomplete
       {...props}
+      freeSolo
       options={options}
       filterOptions={(x) => x}
       onInputChange={handleInputChange}

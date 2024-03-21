@@ -5,7 +5,7 @@ import { TextField } from "@mui/material";
 export function App() {
   return (
     <SemanticAutocomplete
-      freeSolo
+      threshold={0.6}
       options={[
         { label: "Spoon", value: 1 },
         { label: "Fork", value: 2 },

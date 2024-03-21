@@ -25,9 +25,8 @@ self.addEventListener("message", async (event) => {
 
   switch (event.data.type) {
     case "init":
-      const { type, ...rest } = event.data;
-      configs.pipelineParams = rest.pipelineParams || configs.pipelineParams;
-      configs.model = rest.model || configs.model;
+      configs.pipelineParams = event.data.pipelineParams || configs.pipelineParams;
+      configs.model = event.data.model || configs.model;
       break;
 
     case "computeOptions":
@@ -35,7 +34,7 @@ self.addEventListener("message", async (event) => {
         return {
           ...option,
           embeddings: await embeddingsPipeline(
-            option.label,
+            option.labelSemAutoCom,
             configs.pipelineParams
           ),
         };
