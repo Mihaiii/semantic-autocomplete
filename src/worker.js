@@ -40,5 +40,18 @@ self.addEventListener("message", async (event) => {
         optionsWithEmbeddings: optionsWithEmbeddingsData,
       });
       break;
+
+    case "computeInputText":
+      let embeddings = await embeddingsPipeline(event.data.text, {
+        pooling: "mean",
+        normalize: true,
+      });
+
+      self.postMessage({
+        status: "completeInputText",
+        inputTextEmbeddings: embeddings.data,
+        inputText: event.data.text,
+      });
+      break;
   }
 });
