@@ -70,10 +70,10 @@ const SemanticAutocomplete = React.forwardRef((props, ref) => {
           if (props.threshold) {
             let index = sortedOptions.findIndex(
               (op) =>
-                !includesCaseInsensitive(
+                includesCaseInsensitive(
                   op.labelSemAutoCom,
                   e.data.inputText
-                ) && op.sim < props.threshold
+                ) == false && op.sim < props.threshold
             );
             sortedOptions = sortedOptions.slice(0, index);
           }
