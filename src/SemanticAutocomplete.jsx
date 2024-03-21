@@ -1,15 +1,24 @@
 import React, { useState, useRef, useEffect } from "react";
-import { Autocomplete } from "@mui/material";
+import { Autocomplete, TextField, CircularProgress } from "@mui/material";
 import { cos_sim } from "@xenova/transformers";
 import EmbeddingsWorker from "./worker?worker&inline";
 
 const SemanticAutocomplete = React.forwardRef((props, ref) => {
-  const { onInputChange: userOnInputChange } = props;
+  const {
+    loading: userLoading,
+    onInputChange: userOnInputChange,
+    onOpen: userOnOpen,
+    onClose: userOnClose,
+  } = props;
   const [options, setOptions] = useState([]);
+  const [isOpen, setIsOpen] = useState(false);
+  const [isLoading, setLoading] = useState(true);
   const worker = useRef(null);
   const optionsWithEmbeddings = useRef([]);
   const userInput = useRef("");
+  const loading = userLoading ? true : isOpen && isLoading;
   const getOptionLabel = props.getOptionLabel || ((option) => option.label);
+  
   useEffect(() => {
     if (!worker.current) {
       worker.current = new EmbeddingsWorker();
@@ -26,7 +35,7 @@ const SemanticAutocomplete = React.forwardRef((props, ref) => {
         case "completeOptions":
           optionsWithEmbeddings.current = e.data.optionsWithEmbeddings;
           setOptions(props.options);
-
+          setLoading(false);
           //if user writes text before the embeddings are computed
           if (userInput.current) {
             worker.current.postMessage({
@@ -80,6 +89,7 @@ const SemanticAutocomplete = React.forwardRef((props, ref) => {
   });
 
   useEffect(() => {
+    setLoading(true);
     worker.current.postMessage({
       type: "computeOptions",
       options: props.options.map((op) => ({
@@ -106,13 +116,48 @@ const SemanticAutocomplete = React.forwardRef((props, ref) => {
     }
   };
 
+  const handleOnOpen = (event) => {
+    setIsOpen(true);
+
+    if (userOnOpen) {
+      userOnOpen(event);
+    }
+  };
+
+  const handleOnClose = (event) => {
+    setIsOpen(false);
+
+    if (userOnOpen) {
+      userOnClose(event);
+    }
+  };
+
+  const renderLoadingInput = (params) => (
+    <TextField
+      {...params}
+      InputProps={{
+        ...params.InputProps,
+        endAdornment: (
+          <React.Fragment>
+            <CircularProgress color="inherit" />
+            {params.InputProps.endAdornment}
+          </React.Fragment>
+        ),
+      }}
+    />
+  );
+
   return (
     <Autocomplete
       {...props}
       options={options}
-      onInputChange={handleInputChange}
       filterOptions={(x) => x}
+      onInputChange={handleInputChange}
+      loading={loading}
+      onOpen={handleOnOpen}
+      onClose={handleOnClose}
       ref={ref}
+      {...(loading ? { renderInput: renderLoadingInput } : {})}
     />
   );
 });
