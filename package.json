@@ -1,6 +1,6 @@
 {
   "name": "semantic-autocomplete",
-  "description": "A blazing-fast semantic search React component. Match by meaning, not just by letters. Search as you type without waiting (no debounce).",
+  "description": "A blazing-fast semantic search React component. Match by meaning, not just by letters. Search as you type without waiting (no debounce needed). Rank by cosine similarity.",
   "version": "0.0.8",
   "type": "module",
   "main": "dist/semantic-autocomplete.umd.js",
@@ -37,7 +37,7 @@
     "eslint-plugin-react-refresh": "^0.4.5",
     "vite": "^5.1.4"
   },
-  "keywords": ["semantic", "search", "nlp", "cosine", "similarity", "react", "component", "autocomplete"],
+  "keywords": ["semantic", "search", "nlp", "cosine", "similarity", "react", "component", "autocomplete", "mui", "material", "ui", "materialui"],
   "author": "Mihai Chirculescu",
   "license": "MIT"
 }
