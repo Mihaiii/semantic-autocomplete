@@ -24,10 +24,10 @@ self.addEventListener("message", async (event) => {
       const optionPromises = event.data.options.map(async (option) => {
         return {
           ...option,
-          embeddings: await embeddingsPipeline(
-            option.labelSemAutoCom,
-            { pooling: "mean", normalize: true }
-          ),
+          embeddings: await embeddingsPipeline(option.labelSemAutoCom, {
+            pooling: "mean",
+            normalize: true,
+          }),
         };
       });
       let optionsWithEmbeddings = await Promise.all(optionPromises);
