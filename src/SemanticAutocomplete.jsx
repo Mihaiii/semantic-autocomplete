@@ -10,6 +10,7 @@ const SemanticAutocomplete = React.forwardRef((props, ref) => {
     onOpen: userOnOpen,
     onClose: userOnClose,
   } = props;
+  const { onResult, threshold, pipelineParams, model, ...restOfProps } = props;
   const [options, setOptions] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
   const [isLoading, setLoading] = useState(true);
@@ -25,8 +26,8 @@ const SemanticAutocomplete = React.forwardRef((props, ref) => {
 
       worker.current.postMessage({
         type: "init",
-        pipelineParams: props.pipelineParams,
-        model: props.model,
+        pipelineParams: pipelineParams,
+        model: model,
       });
     }
 
@@ -67,18 +68,19 @@ const SemanticAutocomplete = React.forwardRef((props, ref) => {
               return containsA ? -1 : 1;
             });
 
-          if (props.threshold) {
+          if (threshold) {
             let index = sortedOptions.findIndex(
               (op) =>
                 includesCaseInsensitive(
                   op.labelSemAutoCom,
                   e.data.inputText
-                ) == false && op.sim < props.threshold
+                ) == false && op.sim < threshold
             );
             sortedOptions = sortedOptions.slice(0, index);
           }
 
           setOptions(sortedOptions);
+          onResult(sortedOptions);
           break;
       }
     };
@@ -149,7 +151,7 @@ const SemanticAutocomplete = React.forwardRef((props, ref) => {
 
   return (
     <Autocomplete
-      {...props}
+      {...restOfProps}
       options={options}
       filterOptions={(x) => x}
       onInputChange={handleInputChange}
