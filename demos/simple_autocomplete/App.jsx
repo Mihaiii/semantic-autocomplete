@@ -1,4 +1,4 @@
-import SemanticAutocomplete from "./SemanticAutocomplete";
+import SemanticAutocomplete from "../../src/SemanticAutocomplete";
 import { TextField } from "@mui/material";
 
 function App() {
