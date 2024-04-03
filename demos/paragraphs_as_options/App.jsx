@@ -24,6 +24,7 @@ function App() {
   return (
     <div>
       <SemanticAutocompleteMemoized
+        freeSolo
         options={options}
         onResult={setSortedOptions}
         renderInput={(params) => <TextField {...params} placeholder="What are embeddings?" />}
