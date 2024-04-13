@@ -108,7 +108,7 @@ function App() {
       freeSolo
       options={options}
       threshold={0.6}
-      renderInput={(params) => <TextField {...params} />}
+      renderInput={(params) => <TextField {...params} placeholder="kitchen" />}
     />
   );
 }
