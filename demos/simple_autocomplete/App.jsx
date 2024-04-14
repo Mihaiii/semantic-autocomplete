@@ -113,7 +113,7 @@ function App() {
         threshold={0.6}
         renderInput={(params) => <TextField {...params} placeholder="kitchen" />}
       />
-    <div>
+    </div>
   );
 }
 
