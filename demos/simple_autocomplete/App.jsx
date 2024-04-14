@@ -1,6 +1,7 @@
 import SemanticAutocomplete from "../../src/SemanticAutocomplete";
 import { TextField } from "@mui/material";
 import HorizontalLinkList from '../HorizontalLinkList.jsx'
+import React from 'react'
 
 function App() {
   const options = [
