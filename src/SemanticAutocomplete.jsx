@@ -68,7 +68,7 @@ const SemanticAutocomplete = React.forwardRef((props, ref) => {
               return containsA ? -1 : 1;
             });
 
-          if (threshold) {
+          if (threshold && e.data.inputText) {
             let index = sortedOptions.findIndex(
               (op) =>
                 includesCaseInsensitive(
@@ -80,7 +80,7 @@ const SemanticAutocomplete = React.forwardRef((props, ref) => {
           }
 
           setOptions(sortedOptions);
-          if(onResult) {
+          if (onResult) {
             onResult(sortedOptions);
           }
           break;

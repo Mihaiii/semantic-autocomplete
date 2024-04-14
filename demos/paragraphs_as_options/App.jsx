@@ -28,7 +28,6 @@ function App() {
         options={options}
         onResult={setSortedOptions}
         renderInput={(params) => <TextField {...params} placeholder="What are embeddings?" />}
-        model="TaylorAI/gte-tiny"
         open={false}
         popupIcon={null}
       />

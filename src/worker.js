@@ -2,7 +2,7 @@ import { env, pipeline } from "@xenova/transformers";
 
 let configs = {
   pipelineParams: { pooling: "mean", normalize: true },
-  model: "TaylorAI/bge-micro-v2",
+  model: "TaylorAI/gte-tiny",
 };
 
 class MyEmbeddingsPipeline {
