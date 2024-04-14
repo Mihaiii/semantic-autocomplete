@@ -4,6 +4,7 @@ import React, { useContext, useMemo } from 'react'
 const SemanticAutocompleteMemoized = React.memo(SemanticAutocomplete)
 import { SortedOptionsContext } from './context.jsx'
 import jsonData from './data.json';
+import HorizontalLinkList from '../HorizontalLinkList.jsx'
 
 function App() {
   const options = useMemo(() => jsonData, []);
@@ -23,6 +24,7 @@ function App() {
   
   return (
     <div>
+      <HorizontalLinkList />
       <SemanticAutocompleteMemoized
         freeSolo
         options={options}

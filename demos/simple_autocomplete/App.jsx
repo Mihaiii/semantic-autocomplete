@@ -1,5 +1,6 @@
 import SemanticAutocomplete from "../../src/SemanticAutocomplete";
 import { TextField } from "@mui/material";
+import HorizontalLinkList from '../HorizontalLinkList.jsx'
 
 function App() {
   const options = [
@@ -104,12 +105,15 @@ function App() {
   ];
 
   return (
-    <SemanticAutocomplete
-      freeSolo
-      options={options}
-      threshold={0.6}
-      renderInput={(params) => <TextField {...params} placeholder="kitchen" />}
-    />
+    <div>
+      <HorizontalLinkList />
+      <SemanticAutocomplete
+        freeSolo
+        options={options}
+        threshold={0.6}
+        renderInput={(params) => <TextField {...params} placeholder="kitchen" />}
+      />
+    <div>
   );
 }
 
