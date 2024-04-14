@@ -2,17 +2,21 @@
 
 semantic-autocomplete is a Material UI v5 React component that extends [MUI's autocomplete](https://v5.mui.com/material-ui/react-autocomplete/) and performs similarity search using a small, quantized machine learning (ML) model which runs on client side. The full functionality is provided within this React component!
 
-### Demo
+## Demo
 
-Search/sort on a text's paragraphs of a webpage: https://huggingface.co/spaces/Mihaiii/semantic-autocomplete-demo-1
+**Search/sort on a text's paragraphs of a webpage:**
 
-Simple demo searching/sorting & filtering the options of a dropdown: https://huggingface.co/spaces/Mihaiii/semantic-autocomplete-demo-2
+https://huggingface.co/spaces/Mihaiii/semantic-autocomplete-demo-1
 
-### How to install
+**Simple demo searching/sorting & filtering the options of a dropdown:**
+
+https://huggingface.co/spaces/Mihaiii/semantic-autocomplete-demo-2
+
+## How to install
 
 `npm install --save semantic-autocomplete`
 
-### Usage
+## Usage
 
 Since semantic-autocomplete extends [MUI's autocomplete](https://v5.mui.com/material-ui/react-autocomplete/), this means that the entire [v5 MUI's autocomplete API](https://v5.mui.com/material-ui/api/autocomplete/) will also work on semantic-autocomplete. The only exception is the [filterOptions property](https://mui.com/material-ui/react-autocomplete/#custom-filter).
 
@@ -31,6 +35,6 @@ Besides the MUI's autocomplete API, the following props are provided:
 
 `pipelineParams`: the params to be passed to [transformer.js](https://github.com/xenova/transformers.js) when loading the model. Default value: `{ pooling: "mean", normalize: true }`. For more info, please [see this page](https://huggingface.co/docs/transformers.js/api/pipelines#module_pipelines.FeatureExtractionPipeline).
 
-### Thanks / credit
+## Thanks / credit
 - [xonova](https://x.com/xenovacom?t=Mw1h_1joKgfrUXR_wl9Wrg&s=09) for building [transformers.js](https://github.com/xenova/transformers.js), providing clear & in detail documentation, always being willing to help out and for having [lots of demos](https://github.com/xenova/transformers.js/tree/main/examples) on [his HF account](https://huggingface.co/Xenova). The work for this component is based on his tutorial on [how to build a React component using tranaformers.js](https://huggingface.co/docs/transformers.js/en/tutorials/react).
 - [andersonbcdefg](https://x.com/andersonbcdefg?t=0Nkr_SRk-fMUrU_Kp0Wm5w&s=09) for building [gte-tiny](https://huggingface.co/TaylorAI/gte-tiny), which is the default model used in this component. It's an excellent model and it made this repo possible, given I needed a very capable and small model. Note that on TaylorAI there is even a smaller model (17.4 MB) that can be used via the model property of semantic-autocomplete: [bge-micro-v2](https://huggingface.co/TaylorAI/bge-micro-v2).
