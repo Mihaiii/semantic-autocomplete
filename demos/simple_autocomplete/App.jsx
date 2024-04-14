@@ -112,6 +112,7 @@ function App() {
         freeSolo
         options={options}
         threshold={0.6}
+        model="TaylorAI/bge-micro-v2"
         renderInput={(params) => <TextField {...params} placeholder="kitchen" />}
       />
     </div>
