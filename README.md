@@ -13,9 +13,13 @@ https://huggingface.co/spaces/Mihaiii/semantic-autocomplete-demo-1
 https://huggingface.co/spaces/Mihaiii/semantic-autocomplete-demo-2
 
 ## How to install
+Install:
 
 `npm install --save semantic-autocomplete`
 
+Then import:
+
+`import SemanticAutocomplete from "semantic-autocomplete";`
 ## Usage
 
 Since semantic-autocomplete extends [MUI's autocomplete](https://v5.mui.com/material-ui/react-autocomplete/), this means that the entire [v5 MUI's autocomplete API](https://v5.mui.com/material-ui/api/autocomplete/) will also work on semantic-autocomplete. The only exception is the [filterOptions property](https://mui.com/material-ui/react-autocomplete/#custom-filter).
