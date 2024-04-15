@@ -4,7 +4,7 @@ semantic-autocomplete is a React component that extends [v5 MUI's autocomplete](
 
 ## Demo
 
-**Search/sort on a text's paragraphs of a webpage:**
+**Sort paragraphs of a webpage by meaning:**
 
 https://mihaiii.github.io/semantic-autocomplete/
 
