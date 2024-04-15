@@ -18,7 +18,7 @@ Then import:
 `import SemanticAutocomplete from "semantic-autocomplete";`
 ## Usage
 
-Since semantic-autocomplete extends [MUI's autocomplete](https://v5.mui.com/material-ui/react-autocomplete/), this means that the entire [v5 MUI's autocomplete API](https://v5.mui.com/material-ui/api/autocomplete/) will also work on semantic-autocomplete. The only exception is the [filterOptions property](https://mui.com/material-ui/react-autocomplete/#custom-filter).
+Since semantic-autocomplete extends [MUI's autocomplete](https://v5.mui.com/material-ui/react-autocomplete/), the entire [v5 MUI's autocomplete API](https://v5.mui.com/material-ui/api/autocomplete/) will also work on semantic-autocomplete. The only exception is the [filterOptions property](https://mui.com/material-ui/react-autocomplete/#custom-filter).
 
 You can see the component being used in code [here](https://github.com/Mihaiii/semantic-autocomplete/blob/6d312a6264b7c3b79d053e23d3cdb4cf226196a1/demos/paragraphs_as_options/App.jsx#L26-L34) and [here](https://github.com/Mihaiii/semantic-autocomplete/blob/6d312a6264b7c3b79d053e23d3cdb4cf226196a1/demos/simple_autocomplete/App.jsx#L107-L112).
 
