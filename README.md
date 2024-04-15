@@ -8,10 +8,6 @@ semantic-autocomplete is a Material UI v5 React component that extends [MUI's au
 
 https://mihaiii.github.io/semantic-autocomplete/
 
-**Simple demo searching/sorting & filtering the options of a dropdown:**
-
-https://huggingface.co/spaces/Mihaiii/semantic-autocomplete-demo-2
-
 ## How to install
 Install:
 
