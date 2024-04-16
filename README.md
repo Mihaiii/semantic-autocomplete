@@ -1,6 +1,6 @@
 # semantic-autocomplete
 
-semantic-autocomplete is a React component that extends [v5 MUI's autocomplete](https://v5.mui.com/material-ui/react-autocomplete/) and performs similarity search using a small, quantized machine learning (ML) model which runs on client side. The model is downloaded once and then taken from browser's cache. The full functionality is provided within this React component!
+semantic-autocomplete is a React component that extends [v5 MUI's autocomplete](https://v5.mui.com/material-ui/react-autocomplete/) and performs **similarity search** using a small, quantized machine learning (ML) model which runs on client side. The model is downloaded once and then taken from browser's cache. The full functionality is provided within this React component!
 
 ## Demo
 
