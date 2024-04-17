@@ -14,6 +14,7 @@ const SemanticAutocomplete = React.forwardRef((props, ref) => {
   const [options, setOptions] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
   const [isLoading, setLoading] = useState(true);
+  const [parentSize, setParentSize] = useState(0);
   const worker = useRef(null);
   const optionsWithEmbeddings = useRef([]);
   const userInput = useRef("");
@@ -143,10 +144,20 @@ const SemanticAutocomplete = React.forwardRef((props, ref) => {
         ...params.InputProps,
         endAdornment: (
           <React.Fragment>
-            <CircularProgress color="inherit" />
+            <CircularProgress color="inherit" size={0.8 * parentSize} />
             {params.InputProps.endAdornment}
           </React.Fragment>
         ),
+      }}
+      ref={(node) => {
+        if (node) {
+          const inputElement = node.querySelector('input');
+          if (inputElement && parentSize == 0) {
+            //https://stackoverflow.com/a/62721389
+            const { clientHeight, clientWidth } = inputElement;
+            setParentSize(Math.min(clientHeight, clientWidth));
+          }
+        }
       }}
     />
   );
