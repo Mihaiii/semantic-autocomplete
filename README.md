@@ -31,7 +31,7 @@ Besides the MUI's autocomplete API, the following props are provided:
 
 - `threshold`: if it has a value, then the component will filter out options below this cosine similarity value. Defaults to no value (meaning no filtering, only sorting). [Click for code example](https://github.com/Mihaiii/semantic-autocomplete/blob/6d312a6264b7c3b79d053e23d3cdb4cf226196a1/demos/simple_autocomplete/App.jsx#L110).
 
-- `onResult`: callback function once the sorting/filtering of the options is done, using the resulted options areay as first param. [Click for code example](https://github.com/Mihaiii/semantic-autocomplete/blob/6d312a6264b7c3b79d053e23d3cdb4cf226196a1/demos/paragraphs_as_options/App.jsx#L29).
+- `onResult`: callback function once the sorting/filtering of the options is done, using the resulted options array as first param. [Click for code example](https://github.com/Mihaiii/semantic-autocomplete/blob/6d312a6264b7c3b79d053e23d3cdb4cf226196a1/demos/paragraphs_as_options/App.jsx#L29).
 
 - `model`: the name of the Huggingface ML model repo. It has to have the ONNX embeddings model. The folder structure of the repo has to be the standard one used by transformers.js. If you're interested in changing the default used model, you might find [this filter](https://huggingface.co/models?pipeline_tag=sentence-similarity&library=onnx&sort=trending) useful. Default value: `TaylorAI/gte-tiny` (pointing to [this repo](https://huggingface.co/TaylorAI/gte-tiny)), which loads the ONNX quantized model having ~23 MB. [Click here for code example](https://github.com/Mihaiii/semantic-autocomplete/blob/b16115492466eb1502107cf4581a804cb1dcbbe4/demos/simple_autocomplete/App.jsx#L115)
 
