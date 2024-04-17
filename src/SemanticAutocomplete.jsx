@@ -150,9 +150,9 @@ const SemanticAutocomplete = React.forwardRef((props, ref) => {
         ),
       }}
       ref={(node) => {
-        if (node) {
+        if (node && parentSize == 0) {
           const inputElement = node.querySelector('input');
-          if (inputElement && parentSize == 0) {
+          if (inputElement) {
             //https://stackoverflow.com/a/62721389
             const { clientHeight, clientWidth } = inputElement;
             setParentSize(Math.min(clientHeight, clientWidth));
