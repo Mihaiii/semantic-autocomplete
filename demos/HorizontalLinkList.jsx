@@ -4,7 +4,7 @@ import { List, ListItem, Link } from '@mui/material';
 const links = [
   { href: 'https://github.com/Mihaiii/semantic-autocomplete', title: 'GitHub' },
   { href: 'https://www.npmjs.com/package/semantic-autocomplete', title: 'npm' },
-  { href: 'https://huggingface.co/Mihaiii/gte-micro', title: 'Model' },
+  { href: 'https://huggingface.co/Mihaiii/Bulbasaur', title: 'Model' },
   { href: 'https://mihaiii.github.io/semantic-autocomplete/', title: 'Demo' },
 ];
 
