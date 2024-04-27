@@ -79,7 +79,6 @@ const SemanticAutocomplete = React.forwardRef((props, ref) => {
             );
             sortedOptions = sortedOptions.slice(0, index);
           }
-
           setOptions(sortedOptions);
           if (onResult) {
             onResult(sortedOptions);

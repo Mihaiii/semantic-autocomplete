@@ -2,7 +2,7 @@ import { env, pipeline } from "@xenova/transformers";
 
 let configs = {
   pipelineParams: { pooling: "mean", normalize: true },
-  model: "TaylorAI/gte-tiny",
+  model: "Mihaiii/Bulbasaur",
 };
 
 class MyEmbeddingsPipeline {
@@ -11,7 +11,7 @@ class MyEmbeddingsPipeline {
 
   static async getInstance(progress_callback = null) {
     if (this.instance === null) {
-      //we get the models from huggingface. Ex: https://huggingface.co/TaylorAI/bge-micro-v2
+      //we get the models from huggingface. Ex: https://huggingface.co/Mihaiii/Bulbasaur
       env.allowLocalModels = false;
       this.instance = pipeline(this.task, configs.model, { progress_callback });
     }
