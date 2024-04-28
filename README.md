@@ -8,6 +8,8 @@ semantic-autocomplete is a React component that extends [v5 MUI's autocomplete](
 
 https://mihaiii.github.io/semantic-autocomplete/
 
+![](https://raw.githubusercontent.com/Mihaiii/semantic-autocomplete/main/gif-20240427-135757.gif)
+
 ## How to install
 Install:
 
