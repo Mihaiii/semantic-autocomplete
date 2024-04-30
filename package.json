@@ -7,7 +7,6 @@
   "main": "dist/semantic-autocomplete.umd.js",
   "module": "dist/semantic-autocomplete.es.js",
   "scripts": {
-    "predeploy": "npm run build",
     "deploy": "gh-pages -d ghpages",
     "dev": "vite",
     "build": "vite build",
