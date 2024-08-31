@@ -1,6 +1,6 @@
 # semantic-autocomplete
 
-semantic-autocomplete is a React component that extends [v5 MUI's autocomplete](https://v5.mui.com/material-ui/react-autocomplete/) and performs **semantic similarity search** using a small, quantized machine learning (ML) model which runs on client side. The model is downloaded once and then taken from browser's cache. The full functionality is provided within this React component!
+semantic-autocomplete is a React component that extends [v6 MUI's autocomplete](https://v6.mui.com/material-ui/react-autocomplete/) and performs **semantic similarity search** using a small, quantized machine learning (ML) model which runs on client side. The model is downloaded once and then taken from browser's cache. The full functionality is provided within this React component!
 
 ## Demo
 
@@ -10,6 +10,9 @@ https://mihaiii.github.io/semantic-autocomplete/
 
 ![](https://raw.githubusercontent.com/Mihaiii/semantic-autocomplete/main/gif-20240430-032634.gif)
 
+## v5 MUI support
+This component was works with both v5 and v6 MUI.
+
 ## How to install
 Install:
 
@@ -18,16 +21,24 @@ Install:
 Then import:
 
 `import SemanticAutocomplete from "semantic-autocomplete";`
+
+## Run on local from source code
+
+```
+npm install
+npm run dev
+```
+
 ## Usage
 
-Since semantic-autocomplete extends [MUI's autocomplete](https://v5.mui.com/material-ui/react-autocomplete/), the entire [v5 MUI's autocomplete API](https://v5.mui.com/material-ui/api/autocomplete/) will also work on semantic-autocomplete. The only exception is the [filterOptions property](https://mui.com/material-ui/react-autocomplete/#custom-filter).
+Since semantic-autocomplete extends [MUI's autocomplete](https://v6.mui.com/material-ui/react-autocomplete/), the entire [v6 MUI's autocomplete API](https://v6.mui.com/material-ui/api/autocomplete/) will also work on semantic-autocomplete. The only exception is the [filterOptions property](https://mui.com/material-ui/react-autocomplete/#custom-filter).
 
 **If you're already using `autocomplete` in your project, just replace the tag name and you're done.** 🙌
 
 You can see the component being used in code [here](https://github.com/Mihaiii/semantic-autocomplete/blob/6d312a6264b7c3b79d053e23d3cdb4cf226196a1/demos/paragraphs_as_options/App.jsx#L26-L34) and [here](https://github.com/Mihaiii/semantic-autocomplete/blob/6d312a6264b7c3b79d053e23d3cdb4cf226196a1/demos/simple_autocomplete/App.jsx#L107-L112).
 
 
-[See this page for how you can use MUI's autocomplete and therefore semantic-autocomplete too](https://v5.mui.com/material-ui/react-autocomplete/). 
+[See this page for how you can use MUI's autocomplete and therefore semantic-autocomplete too](https://v6.mui.com/material-ui/react-autocomplete/). 
 
 Besides the MUI's autocomplete API, the following props are provided:
 

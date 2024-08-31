@@ -24,7 +24,7 @@
   ],
   "dependencies": {
     "@emotion/styled": "^11.11.0",
-    "@mui/material": "^5.15.12",
+    "@mui/material": ">=5.15.12",
     "@xenova/transformers": "^2.16.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
