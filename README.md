@@ -11,7 +11,7 @@ https://mihaiii.github.io/semantic-autocomplete/
 ![](https://raw.githubusercontent.com/Mihaiii/semantic-autocomplete/main/gif-20240430-032634.gif)
 
 ## v5 MUI support
-This component works with both v5 and v6 MUI.
+This component works with both v5 and v6 MUI. It was not tested by the author on lower MUI versions.
 
 ## How to install
 Install:
